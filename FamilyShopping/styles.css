@@ -1,0 +1,932 @@
+:root {
+    --dark-color: rgb(255, 254, 254);
+    --shirt-color: rgb(98, 99, 100);
+    --skin-color: black;
+  }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    user-select: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: calc(2vw + 2vh);
+    direction: rtl;
+    overflow: hidden;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-image: url('familyShopping.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: .5s fadeAppear ease-in-out;
+}
+.changeLanguageToHebrew {
+    animation: fadingIsraelFlag .8s ease-in;
+}
+@keyframes fadingIsraelFlag {
+    0% {
+        background-image: url(israel_background.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: .5;
+    }
+    40% {
+        opacity: .7;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.changeLanguageToEnglish {
+    animation: fadingUSAFlag .8s ease-in;
+}
+@keyframes fadingUSAFlag {
+    0% {
+        background-image: url(usa_background.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: .5;
+    }
+    40% {
+        opacity: .7;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+button {
+    color: black;
+    border: 3px groove black;
+    font-weight: 600;
+    cursor: pointer; 
+}
+
+.topButtonsDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* --------------- Language Buttons --------- */
+
+.languagesCard {
+    position: relative;
+    margin: 15px;
+    width: 61px;
+    height: 61px;
+  }
+  
+  .languageSide{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .4em;
+    cursor: pointer;
+    transition: transform .5s;
+  }
+  
+  .backSide{
+    transform: rotateY(180deg);
+  }
+
+/* ---------------------  */
+
+#menuButton {
+    position: relative;
+    background-color: snow;
+    border-radius: 100%;
+    margin: 1em;
+    width: 61px;
+    height: 61px;
+    border: none;
+}
+
+#menuButton img {
+    position: absolute;
+    border-radius: 100%;
+    top: -1px;
+    left: -1px;
+    bottom: -1px;
+    right: -1px;
+}
+
+#topDiv {
+    margin: 2vh 0;    
+    background: linear-gradient(to right,  rgba(168, 168, 168, 0.1), rgba(60, 60, 60, 0.8), rgba(168, 168, 168, 0.1));
+}
+
+.titleDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    font-size: 3.5vw;
+
+}
+
+.mainTitle {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 900;
+    font-family: sans-serif;
+    font-style: italic;
+    transition: 1s ease-in-out;
+    width: 100%;
+    text-shadow: 0 0 20px rgb(255, 255, 255);
+    color: white;
+    -webkit-text-stroke: .05em black;
+}
+
+.listTitle {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: .5em;
+    padding: .3em 1em;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 1em;
+    font-family: sans-serif;
+    font-style: italic;
+    transition: 1s ease-in-out;
+    width: fit-content;
+    background: linear-gradient(to right, rgba(255, 250, 250, 0.75), snow, rgba(255, 250, 250, .75));
+    color: rgb(234, 231, 231);
+    text-shadow: 0 0 20px rgb(255, 255, 255);
+    -webkit-text-stroke: .05em black;
+
+}
+
+#menuContent {
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    font-size: 1.5em;
+    position: absolute;
+    top: 48px;
+    right: 48px;
+    animation: fadeAppear .3s ease-in-out;
+}
+
+@keyframes fadeAppear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+    
+}
+
+#menuContent.visible button {
+    text-decoration: none;
+    font-size: .6em;
+    color: black;
+    padding: .5em;
+    text-align: center;
+    border: 3px solid black;
+    opacity: 0;
+    animation: slideFromRight .3s ease-out forwards;
+}
+
+
+#menuContent.invisible button {
+    text-decoration: none;
+    font-size: .6em;
+    color: black;
+    padding: .5em;
+    text-align: center;
+    border: 3px solid black;
+    animation: slideToRight .3s ease-in forwards; 
+}
+
+#menuContent button:nth-child(1) {
+    animation-delay: .05s;
+}
+#menuContent button:nth-child(2) {
+    animation-delay: .1s;
+}
+#menuContent button:nth-child(3) {
+    animation-delay: .15s;
+}
+#menuContent button:nth-child(4) {
+    animation-delay: .2s;
+}
+#menuContent button:nth-child(5) {
+    animation-delay: .25s;
+}
+
+@keyframes slideFromRight {
+    from {
+        transform: translateX(100vw);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideToRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+}
+
+
+#forgotPasswordPage {
+    display: none;
+}
+/* ----------------------- Register Page ---------------- */
+
+#registerPage {
+    display: none;
+
+}
+
+/* ----------------- Connection Error Div ------------ */
+#databaseConnectionFailureDiv {
+    background-color: rgba(5, 3, 3, 0.596);
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+    color: snow;
+    display: none;
+    margin: auto;
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1em;
+}
+
+#databaseConnectionFailureDiv * {
+    margin: .3em;
+}
+
+#errorIcon {
+    width: 64px;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgb(200, 0, 0);
+}
+
+#tryAgainButton {
+    font-size: .8em;
+    border-radius: 10px;
+}
+/* ----------------------- Welcome Div ---------------- */
+
+
+.welcomePage {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    transition: 1s ease-in-out;
+}
+
+.welcomeDiv {
+    width: fit-content;
+    max-width: 60%;
+    height: fit-content;
+    background-color: rgba(255, 250, 250, 0.581);
+    backdrop-filter: blur(3px);
+    border-radius: .6em;
+    padding: 0 1em;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.welcomeDiv * {
+    font-size: .6em;
+    text-align: center;
+    margin: .5em 0;
+    border-radius: .3em;
+}
+
+.title {
+    font-size: 1em
+}
+#secretDiv {
+    display: flex;
+    flex-direction: column;
+    font-size: 1em;
+}
+
+#secretDiv label {
+    font-size: .7em;
+}
+
+.invalidInputText {
+    font-size: 1em;
+    -webkit-text-stroke: black .5px;
+    display: none;
+}
+
+@media screen and (min-width: 1400px) or (min-height: 1400px) {
+    .welcomeDiv {
+        font-size: 56px;
+    }
+}
+@media screen and ((min-width: 1000px) and (max-width: 1400px)) or ((min-height: 1000px) and (max-height: 1400px)) {
+    .welcomeDiv {
+        font-size: 48px;
+    }
+}
+@media screen and (min-width: 700px) and (max-width: 1000px) or ((min-height: 700px) and (max-height: 1000px)) {
+    .welcomeDiv {
+        font-size: 44px;
+    }
+}
+@media screen and (min-width: 400px) and (max-width: 700px) or ((min-height: 400px) and (max-height: 700px)) {
+    .welcomeDiv {
+        font-size: 36px;
+    }
+}
+@media screen and (min-width: 300px) and (max-width: 400px) or ((min-height: 300px) and (max-height: 400px)){
+    .welcomeDiv {
+        font-size: 32px;
+    }
+}
+@media screen and (max-width: 300px) or ((max-height: 300px)){
+    .welcomeDiv {
+        font-size: 26px;
+    }
+}
+/* ----------------------- Main App ----------------------- */
+#mainPage {
+    display: none;
+    overflow: hidden;
+}
+
+.secretQuestions {
+    width: 100%;
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+input {
+    z-index: 1;
+}
+#bottomDiv {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+#inputDiv, .bottomButtonsDiv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#inputDiv *, .bottomButtonsDiv * {
+    background-color: whitesmoke;
+    margin: .3em .5vw;
+    font-size: .7em;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgb(74, 74, 74);
+    text-align: center;
+}
+#countInput {
+    width: 15%;
+}
+#input, #category {
+    width: 30%;
+}
+
+.bottomButtonsDiv * {
+    font-size: 1.1em;
+    margin: .5em;
+}
+
+#listDiv {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+#listDiv ol {
+    list-style: none;
+    z-index: 0;
+    height: 80vh;
+    width: 80vw;
+    display: block;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.548);
+    backdrop-filter: blur(2.5px);
+    border-radius: 1em;
+    box-shadow: 0px 15px 20px gray;
+    overflow-y: scroll;
+}
+
+#myList{
+    z-index: 2;
+    padding: 0;
+
+}
+
+#myList li {
+    padding: 0 .5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    position: relative;
+    transition: .5s ease-in-out;
+
+}
+
+.productDataDiv, .productButtonsDiv {
+    display: flex;
+    align-items: center;
+}
+
+.productCountSpan {
+    padding: 0 .5em;
+}
+
+.modifyingButtonsDiv {
+    display: flex;
+    flex-direction: column;
+    padding-left: .2em;
+    padding-right: 1vw;
+    height: 1.2em;
+    justify-content: space-evenly;
+}
+
+.modifyingButton {
+    padding: 0 3px;
+    margin: .1em 0;
+    border-radius: 3px;
+    border: .1px groove black;
+    background-color: rgba(255, 255, 255, 0.6);
+    flex-basis: 20%;
+    font-size: .25em;
+}
+
+#myList .addedToCart {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), black);
+    color: snow;
+    text-decoration: line-through;
+}
+
+#myList .addedToCart .modifyingButton {
+    pointer-events: none;
+}
+
+#myList li .imageButton {
+    flex-basis: 10%;
+    top: 50%;
+    transform: scale(50%);
+    background: none;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;    
+}
+
+/* --------------------- Copy List Div -------------------- */
+
+#listToCopyDiv {
+    position: fixed;
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    margin: 0;
+    width: fit-content;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+
+}
+
+#listToCopyDiv button {
+    font-size: 1em;
+    width: fit-content;
+}
+
+#textDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: .7em;
+    background: linear-gradient(45deg, white, gray, white, gray, white, gray, white, gray, white);
+    color: black;
+    border: 3px groove black;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+}
+
+#textAreaToCopy {
+    height: 50vh;
+    display: block;
+    width: auto;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+
+#textDiv span {
+    color:  black;
+    text-align: center;
+    width: fit-content;
+    font-weight: 700;
+    margin: 0 auto;
+    font-style: italic;
+    text-decoration:underline;
+}
+
+/* --------------- About Me ------------- */
+
+#aboutMePage {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.671);
+    backdrop-filter: blur(2px);
+    animation: 1s fadeAppear ease-in-out;
+    text-align: right;
+    padding: 1em;
+    margin: 1em;
+    border-radius: 20px;
+    overflow-y: scroll;
+    
+}
+
+
+
+/* ------------------ Categories Color --------------- */
+
+#myList {
+    --gradient-direction: right;
+}
+
+.aa_fruitsCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(255, 150, 50)); /* Light Orange */
+}
+
+.aa_vegetablesCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(100, 200, 100)); /* Light Green */
+}
+
+.bakeryCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(165, 125, 95)); /* Mocha */
+}
+
+.beveragesCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(0, 135, 255)); /* Cobalt Blue */
+}
+
+.meatCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(255, 60, 60)); /* Salmon */
+}
+
+.fishCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(175, 255, 170)); /* Salmon */
+}
+
+.dairyCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(120, 170, 255)); /* Sky Blue */
+}
+
+.grainsCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(255, 220, 110)); /* Apricot */
+}
+
+.saucesCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(175, 100, 185)); /* Lavender */
+}
+
+.snacksCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(255, 180, 30)); /* Tangerine */
+}
+
+.cleaningCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(255, 235, 85)); /* Sunflower Yellow */
+}
+
+.frozenCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(85, 225, 190)); /* Aquamarine */
+}
+
+.preservedCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(231, 249, 169)); /* Slate Gray */
+}
+
+.laundryCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(255, 114, 159)); /* Charcoal */
+}
+
+.kitchenCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(211, 196, 209)); /* Crimson */
+}
+
+.hygieneCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(86, 203, 249)); /* Dark Gray */
+}
+
+.smallAppliancesCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(198, 179, 142)); /* Yellow Ochre */
+}
+
+.spicesCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(234, 253, 248)); /* Periwinkle */
+}
+.cleaningCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(255, 235, 85)); /* Sunflower Yellow */
+}
+.zz_otherCategory, .otherCategory {
+    background: linear-gradient(to var(--gradient-direction), rgba(255, 255, 255, 0), rgb(150, 150, 150)); /* Silver */
+}
+
+/* ------------- Contact Section --------------- */
+
+.contactPage {
+    font-size: 4.2vw;
+    background-color: rgba(255, 255, 255, 0.671);
+    backdrop-filter: blur(2px);
+    animation: 1s fadeAppear ease-in-out;
+    overflow-y: scroll;
+    display: none;
+    position: relative;
+    height: fit-content;
+    text-align: right;
+    padding: 1em;
+    margin: auto 1em;
+    border-radius: 20px;
+    
+}
+
+.contactPageTitle {
+    font-size: 1em;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.contactPage .row {
+    font-size: .5em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 1em;
+  }
+.contactSocialDiv {
+    flex-basis: 45%;
+  }
+  
+.contactInputDiv {
+    flex-basis: 55%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+.contactSocialDiv p {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+.contactSocialDiv p img {
+    margin-right: 1em;
+  }
+
+.contactSocialDiv span a {
+    text-decoration: none;
+  }
+
+.social-icons {
+    margin: 1.5em 0;
+    font-size: 2em;
+    display: flex;
+    justify-content: space-evenly;
+  
+  }
+  
+.social-icons img {
+    text-decoration: none;
+    font-size: 1em;
+    transition: 0.5s;
+  }
+
+.social-icons a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.iconShadowSpan {
+    border-bottom: 5px solid rgb(3, 3, 3);
+    filter: blur(4px);
+    transition: 0.5s;
+  }
+  
+.social-icons .socialIconDiv:hover .iconShadowSpan {
+    transition: 2s;
+    animation: shadowSpin .75s ease-in-out;
+}
+
+@keyframes shadowSpin {
+    0% {
+        transform: scale(1.1) translateY(-3px);
+    }
+    25% {
+        transform: scale(.9) translateY(3px) rotateY(90deg);
+    }
+    50% {
+        transform: scale(.8) translateY(7px) rotateY(180deg);
+    }
+    75% {
+        transform: scale(.9) translateY(3px) rotateY(270deg);
+    }
+    100% {
+        transform: scale(1.1) translateY(0) rotateY(360deg);
+    }
+}
+
+.social-icons .socialIconDiv:hover img {
+    transition: 2s;
+    animation: jumpSpin .75s ease-in-out;
+  }
+
+@keyframes jumpSpin {
+    0% {
+        transform: scale(1) translateY(3px);
+    }
+    25% {
+        transform: scale(1.15) translateY(-3px) rotateY(90deg);
+    }
+    50% {
+        transform: scale(1.35) translateY(-7px) rotateY(180deg);
+    }
+    75% {
+        transform: scale(1.15) translateY(-3px) rotateY(270deg);
+    }
+    100% {
+        transform: scale(1) translateY(0) rotateY(360deg);
+    }
+}
+  
+#contactInputTitle {
+    font-size: 1.1em;
+    text-align: center;
+    white-space: nowrap;
+}
+.contactInputDiv form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+.contactInputDiv form input, .contactInputDiv form textarea {
+    margin: .4em 1em;
+    border: 2px groove var(--shirt-color);
+    border-radius: .5em;
+    outline: none;
+    color: rgb(78, 71, 71);
+    font-size: 1em;
+    font-family: inherit;
+  }
+  
+  .contactInputDiv form input::placeholder, .contactInputDiv form textarea::placeholder {
+    color: black;
+    opacity: .5;
+  }
+  
+  .contactInputDiv form div {
+    margin: 0 auto;
+  }
+  
+  .contactInputDiv form div #submitButton, .contactSocialDiv .downloadButtonDiv #downloadCvButton {
+    background-color: var(--dark-color);
+    color: var(--skin-color);
+    border: 3px groove var(--shirt-color);
+    border-radius: 20px;
+    cursor: pointer;
+    padding: .25em .5em;
+    font-size: 1.2em;
+    font-weight: 900;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  
+  .myDetail {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  #contactText {
+    display: block;
+    padding: 0 1em;
+    margin: 0;
+    font-size: 1.1em;
+  }
+  
+  .contactPage .questionWrapper {
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  .contactPage .questionWrapper .question {
+    font-size: 1.6em;
+    font-weight: 900;
+    display: block;
+    white-space: nowrap;
+    text-align: center;
+    border-bottom: .1em solid black;
+  }
+  
+  #phoneNumber {
+    text-decoration: none;
+  }
+  
+
+  /* ----------------- Responsiveness ---------------- */
+
+@media (max-width: 1440px) and (min-width: 550px) {
+    li button {
+        transform: scale(1.5);
+    }
+    li button img{
+        transform: scale(1.5);
+    }
+    #returnButton {
+        font-size: 1.2em;
+    }
+    #bottomDiv{
+        margin-bottom: 0;
+    }
+}
+@media (max-width: 550px) {
+    .modifyingButton {
+        font-size: 18px;
+    }
+    li button {
+        transform: scale(1.2);
+    }
+    li button img{
+        transform: scale(1.2);
+    }
+}
+
+/* --------- Contact Page -> Responsiveness ------------ */
+
+@media screen and (max-width:800px) {
+    .row {
+        flex-direction: column-reverse;
+    }
+    .contactInputDiv, .contactSocialDiv {
+        margin-bottom: 2em;
+        font-size: 24px;
+    }
+    .contactInputDiv form {
+        align-items: center;      
+    }
+    .contactInputElement {
+        display: block;
+        width: 50vw;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .contactInputDiv, .contactSocialDiv {
+        font-size: 20px;
+    }
+    #contactText {
+        font-size: 20px;
+    }
+}

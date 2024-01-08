@@ -1,0 +1,14 @@
+{
+  "name": "familyshopping",
+  "version": "1.0.0",
+  "description": "A web application for managing the family's grocery list.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bar Levi",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
+}

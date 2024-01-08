@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Family Shopping</title>
+            <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+             <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+             <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+             <link rel="manifest" href="/site.webmanifest">
+            <link rel="stylesheet" href="styles.css">
+            <script src="main.js" type="module"></script>
+        </head>
+        <body>
+            <div id="topDiv">
+                <div class="topButtonsDiv">
+                    <div id="menuWrapper">
+                        <button id="menuButton"><img id="menuButtonImage" src="menu.png" alt="Menu image"></button>
+                        <div id="menuContent" class="menuContent invisible">
+                            <button data-order="1" id="myListButton">הרשימה שלי</button>
+                            <button data-order="2" id="copyListButton">העתק רשימה</button>
+                            <button data-order="3" id="aboutMeButton">אודות</button>
+                            <button data-order="4" id="contactButton">צור קשר</button>
+                            <button data-order="5" id="logoutButton">התנתק</button>
+                        </div>
+                    </div>
+                    <div class="titleDiv">
+                        <span class="mainTitle">Family Shopping</span>
+                    </div>
+                    <div id="languagesCard" class="languagesCard">
+                        <div id="israelFlagSide" class="languageSide frontSide">
+                          <img src="israel_flag.png" alt="Israel flag" id="hebrewFlag">
+                        </div>
+                        <div id="usaFlagSide" class="languageSide backSide">
+                            <img src="usa_flag.png" alt="USA flag" id="englishFlag">                        </div>
+                    </div>                      
+                </div>
+            </div>
+            <div id="loginPage" class="welcomePage">
+                <div id="loginDiv" class="welcomeDiv">
+                    <span id="loginTitle" class="title" style="text-decoration: underline;">ברוכים הבאים!</span>
+                    <input id="loginUsername" class="loginUsername" type="username" placeholder="שם:">
+                    <input id="loginPassword" class="loginPassword" type="password" placeholder="סיסמא:">
+                    <button id="loginButton" class="loginButton">התחבר</button>
+                    <button id="newUserButton" class="loginButton">אין לי חשבון</button>
+                    <button id="forgotPasswordButton" class="loginButton">שכחתי סיסמא</button>
+                    <span id="loginInvalidInputText" class="invalidInputText">שם משתמש/סיסמא שגויים</span>
+                </div>
+            </div>
+            <div id="registerPage" class="welcomePage">
+                <div id="registerDiv" class="welcomeDiv">
+                    <span id="registerTitle" class="title" style="text-decoration: underline;">הרשמה</span>
+                    <input id="registerUsername" class="loginUsername" type="username" placeholder="שם:">
+                    <input id="registerPassword" class="loginPassword" type="password" placeholder="סיסמא:">
+                    
+                    <div id="secretDiv">
+                        <label id="secretQuestionLabel" for="secretQuestions">שאלה סודית:</label>
+                        <select id="secretQuestions" class="secretQuestions">
+                            <option value="question1">מהו שם העיר בה גרת בילדותך?</option>
+                            <option value="question2">מהו שמו של בן/בת הזוג שלך?</option>
+                            <option value="question3">מהו שם המורה האהוב עליך מבית הספר היסודי?</option>
+                            <option value="question4">מהו שם הספר האהוב עליך?</option>
+                            <option value="question5">מהו שם המסעדה האהובה עליך?</option>
+                            <option value="question6">מהו שם המדינה הראשונה בה ביקרת בחו"ל?</option>
+                            <option value="question7">מהו שם הסרט האהוב עליך?</option>
+                            <option value="question8">איזה סוג של מכונית ברצונך לרכוש בעתיד?</option>
+                            <option value="question9">מהו שם חית הבית הראשונה שהייתה ברשותך?</option>
+                            <option value="question10">באיזה מקום בעולם תמיד חלמת לבקר?</option>
+                        </select>
+                        <label id="secretAnswerLabel" for="secretAnswer">תשובה לשאלה:</label>
+                        <input id="secretAnswer" type="text" placeholder="תשובה לשאלה">
+                    </div>
+
+                    <button id="registerButton" class="loginButton">הירשם</button>
+                    <span id="registerInvalidInputText" class="invalidInputText"></span>
+                </div>
+            </div>
+            <div id="forgotPasswordPage" class="welcomePage">
+                <div id="forgotPasswordDiv" class="welcomeDiv"> 
+                    <span id="forgotPasswordTitle" class="title" style="text-decoration: underline;">שינוי סיסמא:</span>
+
+                    <input id="changePasswordUsername" class="loginUsername" type="username" placeholder="שם משתמש:">
+                    <input id="newPasswordInput" type="password" placeholder="סיסמא חדשה:">
+                    <input id="newPasswordInputAssurance" type="password" placeholder="אישור סיסמא:">
+
+                    <div id="secretDiv">
+                        <label for="changePasswordSecretQuestion">שאלה סודית:</label>
+                        <select id="changePasswordSecretQuestion" class="secretQuestions">
+                            <option value="question1">מהו שם העיר בה גרת בילדותך?</option>
+                            <option value="question2">מהו שמו של בן/בת הזוג שלך?</option>
+                            <option value="question3">מהו שם המורה האהוב עליך מבית הספר היסודי?</option>
+                            <option value="question4">מהו שם הספר האהוב עליך?</option>
+                            <option value="question5">מהו שם המסעדה האהובה עליך?</option>
+                            <option value="question6">מהו שם המדינה הראשונה בה ביקרת בחו"ל?</option>
+                            <option value="question7">מהו שם הסרט האהוב עליך?</option>
+                            <option value="question8">איזה סוג של מכונית ברצונך לרכוש בעתיד?</option>
+                            <option value="question9">מהו שם חית הבית הראשונה שהייתה ברשותך?</option>
+                            <option value="question10">באיזה מקום בעולם תמיד חלמת לבקר?</option>
+                        </select>
+                        <label for="changePasswordSecretAnswer">תשובה לשאלה:</label>
+                        <input id="changePasswordSecretAnswer" type="text" placeholder="תשובה לשאלה">
+                    </div>
+
+                    <button id="saveNewPasswordButton" class="loginButton">שנה סיסמא</button>
+                    <span id="changePasswordInvalidInputText" class="invalidInputText"></span>                  
+                </div>
+            </div>
+            <div id="mainPage">
+                <div id="listDiv">
+                    <span id="listTitle" class="listTitle"></span>
+                    <ol id="myList">
+                        <li>
+                        </li>
+                    </ol>
+                </div>
+                <div id="bottomDiv">
+                    <div id="inputDiv">
+                        <input id="countInput" type="number" inputmode="numeric" value="1" min="1" placeholder="כמות:">
+                        <input id="input" type="text" list="products" name="products" placeholder="שם המוצר:">
+                        <select id="category" name="category">
+                            <option id="option1" value="" disabled selected>בחר קטגוריה:</option>
+                            <option value="aa_vegetablesCategory">ירקות</option>
+                            <option value="aa_fruitsCategory">פירות</option>
+                            <option value="meatCategory">בשר</option>
+                            <option value="fishCategory">דגים</option>
+                            <option value="dairyCategory">מוצרי חלב</option>
+                            <option value="grainsCategory">דגנים</option>
+                            <option value="beveragesCategory">שתייה</option>
+                            <option value="saucesCategory">ממרחים ורטבים</option>
+                            <option value="snacksCategory">ממתקים וחטיפים</option>
+                            <option value="bakeryCategory">מאפים</option>
+                            <option value="frozenCategory">קפואים</option>
+                            <option value="preservedCategory">קופסאות שימורים</option>
+                            <option value="cleaningCategory">מוצרי ניקיון</option>
+                            <option value="laundryCategory">מוצרי כביסה</option>
+                            <option value="kitchenCategory">כלי בית</option>
+                            <option value="hygieneCategory">טואלטיקה והגיינה</option>
+                            <option value="smallAppliancesCategory">קטניות</option>
+                            <option value="spicesCategory">תבלינים</option>
+                            <option value="zz_otherCategory">אחר</option>
+                        </select>
+                        <datalist id="products">
+                            <!-- Fruits -->
+                            <option value="אגסים"></option>
+                            <option value="אפרסקים"></option>
+                            <option value="שזיפים"></option>
+                            <option value="תפוח עץ"></option>
+                            <option value="בננות"></option>
+                            <option value="אבטיח"></option>
+                            <option value="מלון"></option>
+                            <option value="אננס"></option>
+                            <option value="ענבים"></option>
+                            <option value="תותים"></option>
+                            <option value="לימונים"></option>
+                            <option value="תפוזים"></option>
+                            <option value="קלמנטינות"></option>
+                            <option value="בצל לבן"></option>
+                            <option value="בצל סגול"></option>
+                            <option value="בצל ירוק"></option>
+                            <option value="מלפפונים"></option>
+                            <option value="עגבניות"></option>
+                            <option value="עגבניות שרי"></option>
+                            <option value="גזר"></option>
+                            <option value="תירס"></option>
+                            <option value="קישוא"></option>
+                            <option value="שום"></option>
+                            <option value="חסה"></option>
+                            <option value="ברוקולי"></option>
+                            <option value="כרוב"></option>
+                            <option value="כרובית"></option>
+                            <option value="פטריות"></option>
+                            <option value="פלפל-גמבה"></option>
+                            <option value="חצילים"></option>
+                            <option value="אבוקדו"></option>
+                            <option value="תפוח אדמה"></option>
+                            <option value="בטטה"></option>
+                            <option value="דלעת"></option>
+                            <option value="שומר"></option>
+                            <option value="קולורבי"></option>
+                            <option value="סלרי"></option>
+                            <option value="עלי רוקט"></option>
+                            <option value="עלי תרד"></option>
+                            <option value="פטרוזיליה"></option>
+                            <option value="כוסברה"></option>
+                            <option value="שמיר"></option>
+                            <option value="נענע"></option>
+                            <option value="בזיליקום"></option>
+                            <option value="רסק עגבניות"></option>
+                    
+                            <!-- Vegetables -->
+                            <option value="תירס גמדי"></option>
+                            <option value="שעועית"></option>
+                            <option value="זיתים"></option>
+                            <option value="טונה"></option>
+                            <option value="מלפפון חמוץ"></option>
+                            <option value="גרגירי חומוס"></option>
+                            <option value="חזה עוף"></option>
+                            <option value="פרגיות"></option>
+                            <option value="עוף - שוקיים"></option>
+                            <option value="עוף - ירכיים"></option>
+                            <option value="עוף - כנפיים"></option>
+                            <option value="בשר טחון"></option>
+                            <option value="בשר בקר"></option>
+                            <option value="לבבות"></option>
+                            <option value="נקניקיות"></option>
+                            <option value="קבב"></option>
+                            <option value="המבורגר"></option>
+                            <option value="פסטה"></option>
+                            <option value="אורז"></option>
+                            <option value="פתיתים"></option>
+                            <option value="איטריות"></option>
+                            <option value="בורגול/קוסקוס"></option>
+                            <option value="לחם"></option>
+                            <option value="לחם קל"></option>
+                            <option value="פיתות"></option>
+                            <option value="קליליות"></option>
+                            <option value="פריכיות אורז"></option>
+                            <option value="פריכיות תירס"></option>
+                            <option value="פירורי לחם"></option>
+                            <option value="פופקורן למיקרו"></option>
+                            <option value="מלח"></option>
+                            <option value="סוכר"></option>
+                            <option value="קמח"></option>
+                            <option value="קפה שחור"></option>
+                            <option value="נס קפה"></option>
+                            <option value="נס קפה מגורען"></option>
+                            <option value="שוקולית"></option>
+                            <option value="קורנפלקס"></option>
+                            <option value="מרק עוף"></option>
+                            <option value="עוגות/עוגיות"></option>
+                            <option value="פיצוחים"></option>
+                            <option value="חטיפים מלוחים"></option>
+                            <option value="שוקולדים טעימים"></option>
+                            <option value="תבלינים - פפריקה מתוקה"></option>
+                            <option value="תבלינים - פפריקה חריפה"></option>
+                            <option value="תבלינים - אבקת שום"></option>
+                            <option value="אבקת אפייה"></option>
+                            <option value="שוקולד מריר"></option>
+                            <option value="שוקולד חלב"></option>
+                            <option value="שוקולד למריחה"></option>
+                            <option value="תבלינים - מלח"></option>
+                            <option value="תבלינים - פלפל שחור"></option>
+                            <option value="תבלינים - גריל עוף"></option>
+                            <option value="תבלינים - פלפל לבן"></option>
+                            <option value="מים מינרליים"></option>
+                            <option value="שתייה קלה - קולה"></option>
+                            <option value="שתייה קלה - קולה זירו"></option>
+                            <option value="שתייה קלה - ספרייט"></option>
+                            <option value="ויטמינצ׳יק בטעם פטל"></option>
+                            <option value="שתייה חריפה - יין"></option>
+                            <option value="בירות"></option>
+                            <option value="וודקה"></option>
+                            <option value="שניצל"></option>
+                            <option value="שניצל תירס"></option>
+                            <option value="ביצים"></option>
+                            <option value="חלות לשבת"></option>
+                            <option value="כוסות חד פעמיות"></option>
+                    
+                            <!-- Household Items -->
+                            <option value="שמן זית"></option>
+                            <option value="שמן רגיל"></option>
+                            <option value="תרסיס שמן"></option>
+                            <option value="רוטב בלסמי"></option>
+                            <option value="חומץ"></option>
+                            <option value="פיצוחים"></option>
+                            <option value="חטיפים מלוחים"></option>
+                            <option value="שתייה נלווית לאלכוהול - רד בולים"></option>
+                            <option value="שתייה נלווית לאלכוהול - מיץ חמוציות"></option>
+                            <option value="שתייה נלווית לאלכוהול - מיץ אשכוליות"></option>
+                            <option value="שמן זית"></option>
+                            <option value="שמן רגיל"></option>
+                            <option value="תרסיס שמן"></option>
+                            <option value="רוטב בלסמי"></option>
+                            <option value="חומץ"></option>
+                            <option value="מוצרי ניקיון וחד פעמי"></option>
+                            <option value="אקונומיקה"></option>
+                            <option value="סבון לריצפה"></option>
+                            <option value="סמרטוט רצפה רב פעמי"></option>
+                            <option value="סמרטוט רצפה חד פעמי"></option>
+                            <option value="ספריי ניקוי לחלונות"></option>
+                            <option value="ספריי לניקוי אבנית"></option>
+                            <option value="מטהר אוויר לשירותים"></option>
+                            <option value="אבקת כביסה"></option>
+                            <option value="מרכך כביסה"></option>
+                            <option value="שקיות זבל"></option>
+                            <option value="שקיות קטנות לסנדוויצ'ים"></option>
+                            <option value="סבון כלים"></option>
+                            <option value="ספוג לכלים"></option>
+                            <option value="סמרטוטים קטנים למטבח"></option>
+                            <option value="כחול לשירותים"></option>
+                            <option value="נייר טואלט"></option>
+                            <option value="נייר סופג"></option>
+                            <option value="מגבונים לחים"></option>
+                            <option value="אבקה למדיח"></option>
+                            <option value="ניילון נצמד"></option>
+                            <option value="נייר אפייה"></option>
+                            <option value="תבניות אפייה חד פעמיות"></option>
+                        </datalist>
+                    </div>
+                    <div class="bottomButtonsDiv">
+                        <button id="addButton">הוסף</button>
+                        <button id="clearButton">נקה</button> 
+                    </div>   
+                </div>
+            </div>
+            <div id="aboutMePage">
+                <section id="about-me">
+                    <h2 id="aboutTitle" style="text-align: center; text-decoration: underline;">אודות</h2>
+                    <p data-translate="hello">שלום לכולכם! 👋🏼</p>
+                    <p data-translate="myName">השם שלי הוא בר לוי, ואני סטודנט שנה שלישית להנדסת תוכנה במכללת SCE באשדוד 👨🏼‍🎓.</p>
+                    <p data-translate="programmingLanguages">אני בקיא בשפות תכנות רבות כגון:<br> C, C++, Python ו-Java,<br> ובחודשים האחרונים התחלתי ללמוד באופן עצמאי טכנולוגיות Web כגון:<br>HTML5, CSS3 ו-JavaSript,<br>אשר באמצעותן בניתי את האתר הזה.</p>
+                    <p data-translate="ambitious">אני שאפתן מאוד ותמיד חושב כיצד אפשר להשתמש בידע שיש לי כדי לעזור לאחרים, וכך חשבתי לבנות את האתר הזה 🤔</p>
+                    <p data-translate="projects"> אתר זה הינו פרוייקט אחד מתוך פרוייקטים רבים שבניתי, בהם אפשר לצפות <a href="https://bar-levi-portfolio.netlify.app" target="_blank" rel="noopener noreferrer">בקישור הזה 🚀</a></p>
+                    <p data-translate="jobSeeking">אני מחפש כרגע משרה חלקית בתחום הפיתוח Frontend/Backend, אשמח בבקשה לחיבורים עם האנשים הרלוונטיים 🕵️‍♂️</p>
+                    <p data-translate="contact">מוזמנים ליצור איתי קשר דרך <a href="https://www.linkedin.com/in/bar-levi-software-developer/">פרופיל הלינקדין שלי</a>, ואם תגידו שהגעתם דרך האתר זה אפילו יהיה עוד יותר מגניב 😉</p>
+                    <a href="BarLevi-CV.pdf" download data-translate="viewResume">לצפייה בקורות החיים שלי</a>
+                </section>
+            </div>
+            <div id="listToCopyDiv">
+                <button id="closeListTextToCopyButton">סגור</button>
+                <div id="textDiv">
+                    <span>רשימה להעתקה</span>
+                    <textarea id="textAreaToCopy" readonly></textarea>
+                </div>
+            </div>
+            <div class="contactPage" id="contactPage">
+                <div class="questionWrapper"><span class="question" data-translate="contactQuestion">אשמח לשמוע מה דעתכם!</span></div>
+                <div class="row">
+                    <div class="contactSocialDiv">
+                        <p id="contactText" data-translate="contactText">
+                            לרשותכם מגוון פלטפורמות נוספות ליצירת קשר, עבור ביקורות, מילים טובות ושיתופי פעולה:
+                        </p>
+                        <p style="direction: ltr;" class="myDetail"><img src="icons/gmail.png" alt="Gmail:""><span data-translate="email">bar314levi@gmail.com</span></p>
+                        <p style="direction: ltr;" class="myDetail" id="phoneNumber"><img src="icons/phone.png" alt="Phone number:"><span data-translate="phoneNumber">+972-52-9569907</span></p>
+                        <div class="social-icons">
+                            <div class="socialIconDiv">
+                                <a style="color: rgb(0, 115, 255);" href="https://www.facebook.com/profile.php?id=100001077609111" target="_blank">
+                                    <img src="icons/facebook.png" alt="Facebook">
+                                    <span class="iconShadowSpan"></span>
+                                </a>
+                            </div>
+                            <div class="socialIconDiv">
+                                <a style="color: rgb(200, 0, 255);" href="https://www.instagram.com/barlevi99/" target="_blank">
+                                    <img src="icons/instagram.png" alt="Instagram">
+                                    <span class="iconShadowSpan"></span>
+                                </a>
+                            </div>
+                            <div class="socialIconDiv">
+                                <a style="color: rgb(61, 61, 213);" href="https://www.linkedin.com/in/bar-levi-software-developer/" target="_blank">
+                                    <img src="icons/linkedin.png" alt="LinkedIn">
+                                    <span class="iconShadowSpan"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="downloadButtonDiv">
+                            <span class="rotatingButton"><a id="downloadCvButton" style="white-space: nowrap;" class="resizing shining bordered" href="BarLevi-CV.pdf" download data-translate="viewResume">לצפייה בקורות החיים</a></span>
+                        </div>
+                    </div>
+                    <div class="contactInputDiv">
+                        <span id="contactInputTitle" data-translate="leaveMessageTitle">מוזמנים להשאיר הודעה -</span>
+                        <form name="submit-to-google-sheet">
+                            <!-- Invisible to the user, just for website recognition. -->
+                            <textarea style="display: none;" name="Website">Family Shopping</textarea> 
+                
+                            <input class="contactInputElement" type="text" name="Name" data-placeholder-translate="yourName" required>
+                            <input class="contactInputElement" type="email" name="Email" data-placeholder-translate="yourEmail" required>
+                            <textarea class="contactInputElement" name="Message" rows="6" data-placeholder-translate="yourMessage" required></textarea>
+                            <div class="rotatingButton">
+                                <button id="submitButton" class="rotatingButton resizing shining" type="submit" data-translate="sendButton">שלח</button>
+                            </div>
+                            <span id="message"></span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="databaseConnectionFailureDiv">
+                <img  id="errorIcon" src="icons/error.png" alt="Connection error:">
+                <span id="databaseConnectionFailureMessage"></span>
+                <button id="tryAgainButton"></button>
+            </div>
+            <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+            <script>
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbw3PIUEBcOZnmhrXCyjC2edFBPCYOueiYd7zLAVkBhlMP8YmoWWda1uMAxktnR4Orsh-Q/exec'
+                const form = document.forms['submit-to-google-sheet']
+                const message = document.getElementById("message");
+    
+                form.addEventListener('submit', e => {
+                e.preventDefault()
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    .then(response => {
+                        message.innerHTML = "ההודעה נשלחה בהצלחה.\nתודה רבה לך!";
+                        setTimeout(function() {
+                            message.innerHTML = "";
+                        }, 5000);
+                        form.reset();
+                    })
+                    .catch(error => console.error('Error!', error.message))
+                })
+            </script>
+            
+        </body>
+    </html>
+
+    
