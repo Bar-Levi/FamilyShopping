@@ -3,7 +3,7 @@
 **Description:**<br>
 FamilyShopping is a collaborative web application for managing family shopping lists. It allows families to control their shopping list together with features like categorization, simultaneous modification, and support for English and Hebrew languages.
 
-![FamilyShopping usage screenshot](https://github.com/Bar-Levi/FamilyShopping/assets/familiyShoppingScreenshot.png)
+![FamilyShopping usage screenshot](https://github.com/Bar-Levi/FamilyShopping/familiyShoppingScreenshot.png)
 
 ## Features
 
