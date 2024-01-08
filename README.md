@@ -14,11 +14,8 @@ FamilyShopping is a collaborative web application for managing family shopping l
 
 ## How to Use
 
-1. Clone this repository to your local machine:
-   ```bash
-   git clone https://github.com/Bar-Levi/FamilyShopping.git
-2. Open index.html in your web browser.
-
+1. Open the website by pressing the link: https://family-shopping.netlify.app/
+2. Create your account or log into your existing account.
 3. Start managing your family shopping list collaboratively.
 
 ## Dependencies
